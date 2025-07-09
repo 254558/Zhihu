@@ -1,28 +1,31 @@
 <template>
-  <div class="p-6">
-    <router-link to="/" class="text-blue-600 underline">← Back to List</router-link>
-    <div v-html="html" class="prose mt-6"></div>
+  <div class="flex justify-center px-4 py-8">
+    <div class="w-full max-w-screen-lg bg-white rounded-xl shadow p-6 md:p-10">
+      <router-link
+        to="/"
+        class="inline-block mb-6 text-blue-600 hover:underline text-base"
+      >
+        ← Back to Articles
+      </router-link>
+
+      <article
+        v-html="html"
+        class="prose prose-slate text-xl leading-relaxed max-w-none"
+      ></article>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { marked } from 'marked'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { marked } from 'marked'
 
 const route = useRoute()
 const html = ref('Loading...')
 
 onMounted(async () => {
   const res = await fetch(`/articles/${route.params.name}`)
-  const md = await res.text()
-  html.value = marked(md)
+  html.value = marked(await res.text())
 })
 </script>
-
-<style>
-.prose {
-  max-width: 65ch;
-  line-height: 1.6;
-}
-</style>
