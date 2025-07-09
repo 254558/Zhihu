@@ -3,28 +3,20 @@
     <router-link to="/" class="text-blue-600 hover:underline text-sm">&larr; 返回首页</router-link>
 
     <div v-if="article">
-      <h1 class="text-4xl font-bold text-gray-900 leading-snug">
+      <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
         {{ article.title }}
       </h1>
 
       <article
-        class="prose prose-lg max-w-none leading-relaxed mt-6
-              prose-headings:text-gray-800
-              prose-a:text-blue-600 hover:prose-a:underline
-              prose-img:rounded-lg shadow
-              prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:pl-4 prose-blockquote:text-gray-600 
-              prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
-              prose-pre:bg-gray-800 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-4
-              prose-li:marker:text-gray-400
-              prose-strong:text-black
-              "
+        class="prose max-w-none mt-8 text-xl leading-9 space-y-8"
         v-html="html"
-      />
+      ></article>
     </div>
 
     <p v-else class="text-gray-400">文章加载中...</p>
   </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue'

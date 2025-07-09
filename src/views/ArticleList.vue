@@ -4,7 +4,7 @@
     <div v-for="article in articles" :key="article.slug" class="border-b pb-4">
       <router-link
         :to="`/article/${article._id}`"
-        class="text-blue-600 text-xl font-semibold hover:underline"
+        class="text-black text-2xl font-semibold hover:no-underline"
       >
         {{ article.title }}
       </router-link>
