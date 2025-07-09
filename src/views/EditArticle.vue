@@ -3,8 +3,6 @@
     <h1 class="text-2xl font-bold">编辑文章</h1>
 
     <input v-model="form.title" type="text" class="w-full border p-2 rounded" placeholder="标题" />
-    <input v-model="form.summary" type="text" class="w-full border p-2 rounded" placeholder="摘要" />
-    <input v-model="form.slug" type="text" class="w-full border p-2 rounded" disabled />
 
     <textarea v-model="form.content" rows="10" class="w-full border p-2 rounded" placeholder="Markdown 正文"></textarea>
 
