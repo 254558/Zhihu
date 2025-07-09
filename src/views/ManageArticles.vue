@@ -1,12 +1,12 @@
 <template>
   <div class="max-w-4xl mx-auto p-6 space-y-4">
-    <h1 class="text-2xl font-bold">文章管理后台</h1>
+    <h1 class="text-2xl font-bold">删除</h1>
 
     <table class="w-full border text-left">
       <thead class="bg-gray-100">
         <tr>
           <th class="p-2">标题</th>
-          <th class="p-2">摘要</th>
+          <th class="p-2"></th>
           <th class="p-2">操作</th>
         </tr>
       </thead>
