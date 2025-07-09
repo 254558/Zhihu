@@ -1,8 +1,6 @@
 # 知乎收藏夹 · Vue + Node + MongoDB 
 
 极简，入门用 
-
-截图
 ![alt text](image-3.png)
 ![alt text](image-1.png)
 ![alt text](image-4.png)
@@ -19,8 +17,6 @@ npm install
 
 启动前端开发服务器
 npm run dev
-
-⸻
 
 ✅ 后端启动
 
