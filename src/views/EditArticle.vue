@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-3xl mx-auto p-6 space-y-4">
+  <div class="max-w-5xl mx-auto p-6 space-y-4"> <!-- 将 max-w-3xl 改为 max-w-5xl 增加宽度 -->
     <h1 class="text-2xl font-bold">编辑文章</h1>
 
-    <input v-model="form.title" type="text" class="w-full border p-2 rounded" placeholder="标题" />
+    <input v-model="form.title" type="text" class="w-full border p-3 rounded-lg text-lg" placeholder="标题" />
 
-    <textarea v-model="form.content" rows="10" class="w-full border p-2 rounded" placeholder="Markdown 正文"></textarea>
+    <textarea v-model="form.content" rows="16" class="w-full border p-3 rounded-lg text-lg leading-relaxed" placeholder="Markdown 正文"></textarea>
 
     <button @click="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">保存修改</button>
 
@@ -17,8 +17,6 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { marked } from 'marked'
-
-// 这些只能写在顶层，不能写在函数里！
 
 const route = useRoute()
 const router = useRouter()
