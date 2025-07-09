@@ -1,26 +1,27 @@
 <template>
-  <div class="flex justify-center px-4 py-8"> 
-    <div class="w-full max-w-4xl">
-      <ul class="grid gap-4">
-        <li v-for="article in articles" :key="article">
-          <router-link
-            :to="`/article/${article}`"
-            class="block p-4 rounded-xl bg-white shadow hover:shadow-md transition"
-          >
-            <h2 class="text-lg font-semibold">{{ formatTitle(article) }}</h2>
-            <p class="text-sm text-gray-500">Click to read more</p>
-          </router-link>
-        </li>
-      </ul>
+  <div class="max-w-6xl mx-auto p-6 space-y-6">
+    <h1 class="text-3xl font-bold">文章列表</h1>
+    <div v-for="article in articles" :key="article.slug" class="border-b pb-4">
+      <router-link
+        :to="`/article/${article._id}`"
+        class="text-blue-600 text-xl font-semibold hover:underline"
+      >
+        {{ article.title }}
+      </router-link>
+      <p class="text-gray-600 text-sm">{{ article.summary }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { fetchArticles } from '../api'
 
-const articles = ref(['hello.md', 'about.md'])
+const articles = ref([])
 
-const formatTitle = (name) =>
-  name.replace('.md', '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+onMounted(async () => {
+  articles.value = await fetchArticles()
+})
+
+
 </script>

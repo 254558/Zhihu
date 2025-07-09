@@ -1,11 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ArticleList from '../views/ArticleList.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
+import UploadArticle from '../views/UploadArticle.vue'
+import ManageArticles from '../views/ManageArticles.vue'
+import EditArticle from '../views/EditArticle.vue'
+
+const routes = [
+  { path: '/', component: ArticleList },
+  { path: '/article/:id', component: ArticleDetail }, // ✅ 修改 slug → id
+  { path: '/upload', component: UploadArticle }, 
+  { path: '/manage', component: ManageArticles },
+  { path: '/edit/:id', component: EditArticle }
+]
 
 export default createRouter({
   history: createWebHistory(),
-  routes: [
-    { path: '/', component: ArticleList },
-    { path: '/article/:name', component: ArticleDetail, props: true }
-  ]
+  routes,
 })
