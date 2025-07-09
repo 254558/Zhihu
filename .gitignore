@@ -1,0 +1,19 @@
+# 依赖包
+node_modules/
+
+# Vite 构建产物
+dist/
+
+# 临时文件
+*.log
+*.tmp
+
+# macOS 系统文件
+.DS_Store
+
+# VSCode 配置（如果你不想传）
+.vscode/
+
+# 环境变量文件
+.env
+.env.*
