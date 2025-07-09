@@ -1,6 +1,5 @@
 <template>
   <div class="max-w-6xl mx-auto p-6 space-y-6">
-    <h1 class="text-3xl font-bold">文章列表</h1>
     <div v-for="article in articles" :key="article.slug" class="border-b pb-4">
       <router-link
         :to="`/article/${article._id}`"
