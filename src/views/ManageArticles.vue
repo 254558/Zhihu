@@ -1,6 +1,5 @@
 <template>
   <div class="max-w-4xl mx-auto p-6 space-y-4">
-    <h1 class="text-2xl font-bold">删除</h1>
 
     <table class="w-full border text-left">
       <thead class="bg-gray-100">
