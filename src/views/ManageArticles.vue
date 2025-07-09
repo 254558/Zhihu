@@ -14,8 +14,18 @@
         <td class="p-2">{{ article.title }}</td>
         <td class="p-2">{{ article.summary }}</td>
         <td class="p-2 space-x-2">
-            <router-link :to="`/edit/${article._id}`" class="text-blue-600 hover:underline">编辑</router-link>
-            <button @click="del(article._id)" class="text-red-600 hover:underline">删除</button>
+            <router-link 
+              :to="`/edit/${article._id}`" 
+              class="inline-flex items-center px-3 py-1.5 border border-blue-300 text-blue-700 bg-blue-50 rounded-md text-sm font-medium hover:bg-blue-100 transition-all duration-200"
+            >
+              编辑
+            </router-link>
+            <button 
+              @click="del(article._id)" 
+              class="inline-flex items-center px-3 py-1.5 border border-red-300 text-red-700 bg-red-50 rounded-md text-sm font-medium hover:bg-red-100 transition-all duration-200"
+            >
+              删除
+            </button>
         </td>
         </tr>
       </tbody>

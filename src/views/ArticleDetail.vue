@@ -1,7 +1,5 @@
 <template>
-  <div class="max-w-5xl mx-auto px-6 py-10 space-y-6">
-    <router-link to="/" class="text-blue-600 hover:underline text-sm">&larr; 返回首页</router-link>
-
+  <div class="max-w-5xl mx-auto px-6 pt-6 pb-10 space-y-6">
     <div v-if="article">
       <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
         {{ article.title }}
