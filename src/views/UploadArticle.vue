@@ -1,6 +1,5 @@
 <template>
   <div class="max-w-5xl mx-auto p-6 space-y-6">
-    <h1 class="text-2xl font-bold">发布新文章</h1>
 
     <!-- 标题输入 -->
     <input
