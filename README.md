@@ -8,7 +8,6 @@
 
 - 前端：Vue 3 + Vite + Tailwind CSS
 - 后端：Express + MongoDB (Mongoose)
-- Markdown 解析：marked.js
 
 ##### **✅ 前端启动**
 
