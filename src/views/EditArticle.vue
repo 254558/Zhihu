@@ -1,10 +1,7 @@
 <template>
   <div class="max-w-5xl mx-auto p-6">
     <div class="bg-white shadow-xl rounded-2xl p-6 space-y-6 border border-gray-200">
-
-      <!-- 页面标题 -->
-      <h2 class="text-2xl font-bold text-gray-800">✏️ 编辑文章</h2>
-
+      
       <!-- 标题输入 -->
       <input
         v-model="form.title"
