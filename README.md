@@ -1,10 +1,9 @@
 # 知乎收藏夹 · Vue + Node + MongoDB 
 
 极简，入门用 
-![alt text](image-3.png)
 ![alt text](image.png)
-![alt text](image-4.png)
-
+![alt text](image-1.png)
+![alt text](image-2.png)
 ##### **技术栈**
 
 - 前端：Vue 3 + Vite + Tailwind CSS

@@ -7,7 +7,7 @@
       </h1>
 
       <!-- 操作按钮 -->
-      <div class="mt-4 space-x-4">
+      <div class="mt-4 mb-6 space-x-4">
         <router-link
           :to="`/edit/${article._id}`"
           class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
@@ -22,10 +22,10 @@
         </button>
       </div>
 
-      <!-- 正文 -->
+      <!-- 正文，直接渲染HTML -->
       <article
-        class="prose max-w-none mt-8 text-xl leading-9 space-y-8"
-        v-html="html"
+        class="ql-editor custom-quill mt-8"
+        v-html="article.content"
       ></article>
     </div>
 
@@ -36,12 +36,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { marked } from 'marked'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 const route = useRoute()
 const router = useRouter()
 const article = ref(null)
-const html = ref('')
 
 onMounted(async () => {
   const id = route.params.id
@@ -50,11 +49,9 @@ onMounted(async () => {
     if (!res.ok) throw new Error('获取失败')
     const data = await res.json()
     article.value = data
-    html.value = marked.parse(data.content || '')
   } catch (err) {
     console.error('加载失败:', err)
     article.value = null
-    html.value = '<p class="text-red-500">加载失败</p>'
   }
 })
 
@@ -62,7 +59,7 @@ async function deleteArticle() {
   if (!confirm('确认删除这篇文章？')) return
 
   const res = await fetch(`http://localhost:3000/api/articles/${article.value._id}`, {
-    method: 'DELETE'
+    method: 'DELETE',
   })
 
   if (res.ok) {
