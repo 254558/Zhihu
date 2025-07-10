@@ -1,6 +1,6 @@
 # 知乎收藏夹 · Vue + Node + MongoDB 
 
-#### 极简，学Vue入门用 
+#### 极简，学Vue入门用
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
