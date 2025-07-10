@@ -13,7 +13,3 @@ dist/
 
 # VSCode 配置（如果你不想传）
 .vscode/
-
-# 环境变量文件
-.env
-.env.*
