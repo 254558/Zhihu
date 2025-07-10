@@ -1,11 +1,9 @@
 <template>
   <div class="max-w-5xl mx-auto p-4 sm:p-6">
-    <!-- 完全移除卡片之间的间距 -->
-    <div class="grid gap-0">
       <div 
         v-for="article in articles" 
-        :key="article.slug"
-        class="bg-white rounded-xl p-3 sm:p-4 hover:bg-gray-50 transition-colors duration-200 mb-0"
+        :key="article._id"
+        class="bg-white rounded-xl p-1 hover:bg-gray-50 transition-colors duration-200 mb-0"
       >
         <router-link
           :to="`/article/${article._id}`"
@@ -15,18 +13,15 @@
               style="transition-delay: 0ms;">
             {{ article.title }}
           </h3>
-          <p class="text-gray-600 text-sm sm:text-base line-clamp-2 leading-relaxed">
-            {{ article.summary }}
-          </p>
         </router-link>
       </div>
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { fetchArticles } from '../api'
+
 const articles = ref([])
 onMounted(async () => {
 articles.value = await fetchArticles()
