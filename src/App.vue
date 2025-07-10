@@ -17,13 +17,6 @@
       >
         发布文章
       </router-link>
-      <router-link
-        to="/manage"
-        class="px-4 py-2 rounded-md text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium"
-        active-class="bg-blue-50 text-blue-600 font-semibold"
-      >
-        编辑删除
-      </router-link>
     </div>
   </nav>
 

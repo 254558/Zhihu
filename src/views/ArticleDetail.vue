@@ -1,10 +1,28 @@
 <template>
   <div class="max-w-5xl mx-auto px-6 pt-6 pb-10 space-y-6">
     <div v-if="article">
+      <!-- 标题 -->
       <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
         {{ article.title }}
       </h1>
 
+      <!-- 操作按钮 -->
+      <div class="mt-4 space-x-4">
+        <router-link
+          :to="`/edit/${article._id}`"
+          class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          编辑
+        </router-link>
+        <button
+          @click="deleteArticle"
+          class="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+        >
+          删除
+        </button>
+      </div>
+
+      <!-- 正文 -->
       <article
         class="prose max-w-none mt-8 text-xl leading-9 space-y-8"
         v-html="html"
@@ -15,27 +33,22 @@
   </div>
 </template>
 
-
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { marked } from 'marked'
 
 const route = useRoute()
+const router = useRouter()
 const article = ref(null)
 const html = ref('')
 
 onMounted(async () => {
   const id = route.params.id
-  console.log('当前文章 ID:', id)
-
   try {
     const res = await fetch(`http://localhost:3000/api/articles/${id}`)
     if (!res.ok) throw new Error('获取失败')
-
     const data = await res.json()
-    console.log('文章数据:', data)
-
     article.value = data
     html.value = marked.parse(data.content || '')
   } catch (err) {
@@ -44,4 +57,19 @@ onMounted(async () => {
     html.value = '<p class="text-red-500">加载失败</p>'
   }
 })
+
+async function deleteArticle() {
+  if (!confirm('确认删除这篇文章？')) return
+
+  const res = await fetch(`http://localhost:3000/api/articles/${article.value._id}`, {
+    method: 'DELETE'
+  })
+
+  if (res.ok) {
+    alert('删除成功')
+    router.push('/')
+  } else {
+    alert('删除失败')
+  }
+}
 </script>
