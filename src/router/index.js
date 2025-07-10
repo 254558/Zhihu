@@ -7,7 +7,7 @@ import EditArticle from '../views/EditArticle.vue'
 
 const routes = [
   { path: '/', component: ArticleList },
-  { path: '/article/:id', component: ArticleDetail }, // ✅ 修改 slug → id
+  { path: '/article/:id', component: ArticleDetail }, 
   { path: '/upload', component: UploadArticle }, 
   { path: '/manage', component: ManageArticles },
   { path: '/edit/:id', component: EditArticle }
